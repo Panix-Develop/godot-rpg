@@ -20,7 +20,11 @@ func _ready():
 	current_health = max_health
 	update_selection_visual()
 
-func _physics_procesdelta):
+func _physics_process(delta):
+	if is_moving:
+		move_to_target(delta)
+
+func move_to_target(delta):
 	var direction = (target_position - global_position).normalized()
 	direction.y = 0  # Keep movement on the ground plane
 	
@@ -30,7 +34,7 @@ func _physics_procesdelta):
 		velocity = direction * move_speed
 		
 		# Use move_and_slide which handles collisions automatically
-		var collision = move_and_slide()
+		move_and_slide()
 		
 		# Smooth rotation toward movement direction
 		if direction.length() > 0:
@@ -38,16 +42,13 @@ func _physics_procesdelta):
 			rotation.y = lerp_angle(rotation.y, target_rotation, rotation_speed * delta)
 	else:
 		# Reached destination
-		# Rotate to face movement direction
-		if direction.length() > 0:
-			look_at(global_position + direction, Vector3.UP)
-	else:
 		is_moving = false
 		velocity = Vector3.ZERO
 
 func set_target_position(pos: Vector3):
 	target_position = pos
 	target_position.y = global_position.y  # Keep on same height
+	is_moving = true
 	is_moving = true
 
 func set_selected(selected: bool):

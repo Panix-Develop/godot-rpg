@@ -59,6 +59,10 @@ func handle_camera_movement(delta):
 		
 		var movement = (right * move_direction.x + forward * -move_direction.z) * move_speed * delta
 		global_position += movement
+		
+		# Clamp camera position to map bounds
+		global_position.x = clamp(global_position.x, -map_bounds.x, map_bounds.x)
+		global_position.z = clamp(global_position.z, -map_bounds.y, map_bounds.y)
 
 func handle_camera_zoom(_delta):
 	if Input.is_action_just_released("scroll_up"):
