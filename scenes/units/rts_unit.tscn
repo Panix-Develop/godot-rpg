@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqvmxj5xrbgc7"]
+[gd_scene load_steps=7 format=3 uid="uid://cqvmxj5xrbgc7"]
 
 [ext_resource type="Script" path="res://scripts/units/rts_unit.gd" id="1_f6k3a"]
+[ext_resource type="PackedScene" uid="uid://bb3o5r2m8ktjf" path="res://scenes/components/floating_ui.tscn" id="2_floating"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_unit"]
 radius = 0.4
@@ -34,6 +35,8 @@ shape = SubResource("CapsuleShape3D_unit")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
 visible = false
 mesh = SubResource("CylinderMesh_selection")
+
+[node name="FloatingUI" parent="." instance=ExtResource("2_floating")]
 
 [node name="HealthBar3D" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

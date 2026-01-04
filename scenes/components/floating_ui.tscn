@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://bb3o5r2m8ktjf"]
+
+[ext_resource type="Script" path="res://scripts/components/floating_ui.gd" id="1_floating"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_health"]
+viewport_path = NodePath("HealthBarSprite/SubViewport")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health"]
+bg_color = Color(0.2, 0.8, 0.2, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+
+[node name="FloatingUI" type="Node3D"]
+script = ExtResource("1_floating")
+
+[node name="NameLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+pixel_size = 0.005
+billboard = 1
+text = "Unit Name"
+font_size = 24
+outline_size = 8
+outline_modulate = Color(0, 0, 0, 1)
+
+[node name="LevelLabel" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+pixel_size = 0.004
+billboard = 1
+text = "Lvl 1"
+font_size = 18
+outline_size = 6
+outline_modulate = Color(0, 0, 0, 1)
+
+[node name="HealthBarSprite" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+pixel_size = 0.002
+billboard = 1
+texture = SubResource("ViewportTexture_health")
+
+[node name="SubViewport" type="SubViewport" parent="HealthBarSprite"]
+transparent_bg = true
+size = Vector2i(200, 30)
+
+[node name="HealthProgress" type="ProgressBar" parent="HealthBarSprite/SubViewport"]
+offset_right = 200.0
+offset_bottom = 30.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_health")
+max_value = 100.0
+value = 75.0
+show_percentage = false
+
+[node name="HealthText" type="Label" parent="HealthBarSprite/SubViewport"]
+offset_right = 200.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 14
+text = "75/100"
+horizontal_alignment = 1
+vertical_alignment = 1

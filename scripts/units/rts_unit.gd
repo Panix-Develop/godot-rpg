@@ -45,6 +45,7 @@ var is_moving: bool = false
 
 @onready var selection_indicator = $SelectionIndicator
 @onready var mesh_instance = $MeshInstance3D
+@onready var floating_ui = $FloatingUI
 
 func _ready():
 	# Scale NPC stats if not player-controlled
@@ -58,6 +59,12 @@ func _ready():
 	add_to_group("unit_" + unit_type.to_lower())
 	apply_unit_color()
 	update_selection_visual()
+	
+	# Initialize floating UI
+	if floating_ui:
+		floating_ui.update_name(display_name if display_name else unit_name)
+		floating_ui.update_level(level)
+		floating_ui.update_health(int(current_health), int(get_max_health()))
 
 func apply_unit_color():
 	"""Apply color material based on unit type."""
@@ -124,6 +131,11 @@ func update_selection_visual():
 
 func take_damage(amount: float):
 	current_health = max(0, current_health - amount)
+	
+	# Update floating UI
+	if floating_ui:
+		floating_ui.update_health(int(current_health), int(get_max_health()))
+	
 	if current_health <= 0:
 		die()
 
@@ -181,6 +193,11 @@ func level_up_unit():
 	max_health = get_max_health()
 	current_health = max_health * health_percent
 	
+	# Update floating UI
+	if floating_ui:
+		floating_ui.update_level(level)
+		floating_ui.update_health(int(current_health), int(max_health))
+	
 	level_up.emit(level)
 
 func scale_npc_stats():
@@ -199,5 +216,9 @@ func add_stat(stat_name: String, amount: int):
 		max_health = get_max_health()
 		if current_health > max_health:
 			current_health = max_health
+		
+		# Update floating UI if constitution changed
+		if stat_name == "constitution" and floating_ui:
+			floating_ui.update_health(int(current_health), int(max_health))
 		
 		stat_changed.emit(stat_name, stats[stat_name])
