@@ -1,0 +1,148 @@
+[gd_scene load_steps=3 format=3 uid="uid://settings_panel_001"]
+
+[ext_resource type="Script" path="res://scripts/ui/settings_panel.gd" id="1_settings"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel_bg"]
+bg_color = Color(0.1, 0.1, 0.15, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.4, 0.5, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_left = 8
+corner_radius_bottom_right = 8
+
+[node name="SettingsPanel" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -250.0
+offset_right = 200.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel_bg")
+script = ExtResource("1_settings")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="TitleBar" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer/TitleBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Game Settings"
+theme_override_font_sizes/font_size = 24
+
+[node name="CloseButton" type="Button" parent="MarginContainer/VBoxContainer/TitleBar"]
+layout_mode = 2
+text = "X"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 400)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="SettingsContent" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HealthBarSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/HealthBarSection"]
+layout_mode = 2
+text = "Unit Health Bars"
+theme_override_font_sizes/font_size = 18
+
+[node name="HealthBarMode" type="OptionButton" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/HealthBarSection"]
+layout_mode = 2
+
+[node name="Spacer1" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="NameDisplaySection" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+text = "Name Display"
+theme_override_font_sizes/font_size = 18
+
+[node name="ShowFriendlyNames" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+button_pressed = true
+text = "Show Friendly NPC Names"
+
+[node name="ShowNeutralNames" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+button_pressed = true
+text = "Show Neutral Names"
+
+[node name="ShowHostileNames" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+button_pressed = true
+text = "Show Hostile Names"
+
+[node name="ShowBossNames" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+button_pressed = true
+text = "Show Boss Names"
+
+[node name="ShowLevel" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+button_pressed = true
+text = "Show Level"
+
+[node name="ShowOwnHealth" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+button_pressed = true
+text = "Show Own Health"
+
+[node name="ShowOwnMana" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+text = "Show Own Mana"
+
+[node name="ShowOtherHealth" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+text = "Show Other Players Health"
+
+[node name="ShowOtherMana" type="CheckBox" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/NameDisplaySection"]
+layout_mode = 2
+text = "Show Other Players Mana"
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="HealthBarFormatSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/HealthBarFormatSection"]
+layout_mode = 2
+text = "Health Bar Numbers"
+theme_override_font_sizes/font_size = 18
+
+[node name="HealthBarFormat" type="OptionButton" parent="MarginContainer/VBoxContainer/ScrollContainer/SettingsContent/HealthBarFormatSection"]
+layout_mode = 2
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/TitleBar/CloseButton" to="." method="_on_close_button_pressed"]

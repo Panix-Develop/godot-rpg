@@ -1,6 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6v0xj5xrbgda"]
+[gd_scene load_steps=5 format=3 uid="uid://b6v0xj5xrbgda"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+[ext_resource type="PackedScene" uid="uid://settings_panel_001" path="res://scenes/ui/settings_panel.tscn" id="2_settings"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_topbar_bg"]
+bg_color = Color(0.1, 0.1, 0.1, 0.9)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_bg"]
 bg_color = Color(0.1, 0.1, 0.15, 0.9)
@@ -23,6 +27,24 @@ border_color = Color(0.4, 0.8, 1, 0.8)
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hud")
 
+[node name="TopBar" type="PanelContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 40.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_topbar_bg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TopBar"]
+layout_mode = 2
+
+[node name="MenuButton" type="Button" parent="TopBar/HBoxContainer"]
+layout_mode = 2
+text = "Menu"
+
+[node name="Spacer" type="Control" parent="TopBar/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
 [node name="SelectionBox" type="Panel" parent="."]
 visible = false
 offset_right = 100.0
@@ -34,38 +56,137 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -200.0
+offset_top = -250.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_hud_bg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="BottomPanel"]
 layout_mode = 2
+theme_override_constants/separation = 16
 
 [node name="UnitPortrait" type="ColorRect" parent="BottomPanel/HBoxContainer"]
-custom_minimum_size = Vector2(80, 80)
+custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 color = Color(0.3, 0.3, 0.4, 1)
 
 [node name="UnitInfo" type="VBoxContainer" parent="BottomPanel/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
-[node name="UnitName" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo"]
+[node name="TopRow" type="HBoxContainer" parent="BottomPanel/HBoxContainer/UnitInfo"]
 layout_mode = 2
+
+[node name="UnitName" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/TopRow"]
+layout_mode = 2
+size_flags_horizontal = 3
 text = "Unit Name"
+theme_override_font_sizes/font_size = 24
+
+[node name="UnitLevel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/TopRow"]
+layout_mode = 2
+text = "Level 1"
 theme_override_font_sizes/font_size = 20
 
-[node name="UnitHealth" type="ProgressBar" parent="BottomPanel/HBoxContainer/UnitInfo"]
+[node name="HealthRow" type="VBoxContainer" parent="BottomPanel/HBoxContainer/UnitInfo"]
+layout_mode = 2
+
+[node name="UnitHealth" type="ProgressBar" parent="BottomPanel/HBoxContainer/UnitInfo/HealthRow"]
+custom_minimum_size = Vector2(0, 24)
 layout_mode = 2
 value = 100.0
 show_percentage = false
 
-[node name="UnitHealthLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo"]
+[node name="UnitHealthLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/HealthRow"]
 layout_mode = 2
 text = "Health: 100/100"
 
+[node name="ExperienceLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo"]
+layout_mode = 2
+text = "XP: 0 / 100"
+
+[node name="StatsContainer" type="GridContainer" parent="BottomPanel/HBoxContainer/UnitInfo"]
+layout_mode = 2
+columns = 4
+
+[node name="StrLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+layout_mode = 2
+text = "STR:"
+
+[node name="StrValue" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "10"
+
+[node name="ConLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+layout_mode = 2
+text = "CON:"
+
+[node name="ConValue" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "10"
+
+[node name="DexLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+layout_mode = 2
+text = "DEX:"
+
+[node name="DexValue" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "10"
+
+[node name="AgiLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+layout_mode = 2
+text = "AGI:"
+
+[node name="AgiValue" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "10"
+
+[node name="IntLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+layout_mode = 2
+text = "INT:"
+
+[node name="IntValue" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "10"
+
+[node name="WisLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+layout_mode = 2
+text = "WIS:"
+
+[node name="WisValue" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/StatsContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "10"
+
+[node name="CombatStats" type="HBoxContainer" parent="BottomPanel/HBoxContainer/UnitInfo"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="AttackLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/CombatStats"]
+layout_mode = 2
+text = "Attack: 0"
+
+[node name="ArmorLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/CombatStats"]
+layout_mode = 2
+text = "Armor: 0"
+
+[node name="UnspentPointsLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo/CombatStats"]
+layout_mode = 2
+text = "Unspent Points: 0"
+theme_override_colors/font_color = Color(1, 1, 0, 1)
+
 [node name="Spacer" type="Control" parent="BottomPanel/HBoxContainer"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 3
+
+[node name="SettingsPanel" parent="." instance=ExtResource("2_settings")]
+visible = false
+
+[connection signal="pressed" from="TopBar/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

@@ -116,59 +116,41 @@ Update the file after completing each sub-task, not just after completing an ent
     - [x] 2.6.2 Check console for correct group assignment messages (optional debug prints)
     - [x] 2.6.3 Verify other units are green
 
-- [ ] 3.0 Implement Stats and Leveling System (Phase C: Days 5-6)
-  - [ ] 3.1 **Add core stats structure**
-    - [ ] 3.1.1 Read `scripts/units/rts_unit.gd`
-    - [ ] 3.1.2 Add stats dictionary with base values:
-      ```gdscript
-      var stats = {
-          "strength": 10,
-          "constitution": 10,
-          "dexterity": 10,
-          "agility": 10,
-          "intelligence": 10,
-          "wisdom": 10
-      }
-      ```
-    - [ ] 3.1.3 Add `@export var base_damage: int = 5`
-    - [ ] 3.1.4 Add `@export var base_armor: int = 0`
-    - [ ] 3.1.5 Add `@export var base_health: int = 100`
-    - [ ] 3.1.6 Commit: "feat(stats): Add core stats structure and base values"
-  - [ ] 3.2 **Add derived stats calculations**
-    - [ ] 3.2.1 Create computed properties for derived stats:
-      - `func get_attack_damage() -> int: return base_damage + (stats.strength * 2)`
-      - `func get_armor() -> int: return base_armor + stats.dexterity`
-      - `func get_max_health() -> int: return base_health + (stats.constitution * 10)`
-    - [ ] 3.2.2 Update health initialization to use get_max_health()
-    - [ ] 3.2.3 Commit: "feat(stats): Add derived stats calculation (attack, armor, max_health)"
-  - [ ] 3.3 **Add leveling system**
-    - [ ] 3.3.1 Add leveling properties:
-      ```gdscript
-      @export var level: int = 1
-      var experience: int = 0
-      var unspent_stat_points: int = 0
-      ```
-    - [ ] 3.3.2 Add computed property: `func get_experience_to_next_level() -> int: return level * 100`
-    - [ ] 3.3.3 Add signal: `signal level_up(new_level: int)`
-    - [ ] 3.3.4 Create `add_experience(amount: int)` method with level up logic
-    - [ ] 3.3.5 On level up: increment level, add 5 stat points, emit signal
-    - [ ] 3.3.6 Commit: "feat(leveling): Add experience and level up system"
-  - [ ] 3.4 **Handle NPC stat scaling**
-    - [ ] 3.4.1 Add `is_player_controlled()` helper: `return is_in_group("unit_player")`
-    - [ ] 3.4.2 In _ready(), if NOT player-controlled, scale stats by level: `base_stat + (level * 2)`
-    - [ ] 3.4.3 Test with @export level on enemy/neutral units
-    - [ ] 3.4.4 Commit: "feat(npcs): Scale NPC stats based on level"
-  - [ ] 3.5 **Add stat modification method**
-    - [ ] 3.5.1 Create `add_stat(stat_name: String, amount: int)` method
-    - [ ] 3.5.2 Validate stat_name exists in stats dictionary
-    - [ ] 3.5.3 Add amount to stat, clamp to reasonable max (e.g., 999)
-    - [ ] 3.5.4 Emit signal: `signal stat_changed(stat_name: String, new_value: int)`
-    - [ ] 3.5.5 Commit: "feat(stats): Add stat modification method with validation"
-  - [ ] 3.6 **Test stats and leveling**
-    - [ ] 3.6.1 Temporarily add debug print in _ready() showing stats
-    - [ ] 3.6.2 Run game, verify stats display in console
-    - [ ] 3.6.3 Test add_experience method with test button (temporary)
-    - [ ] 3.6.4 Verify level up grants stat points and recalculates derived stats
+- [x] 3.0 Implement Stats and Leveling System (Phase C: Days 5-6)
+  - [x] 3.1 **Add core stats structure**
+    - [x] 3.1.1 Read `scripts/units/rts_unit.gd`
+    - [x] 3.1.2 Add stats dictionary with base values
+    - [x] 3.1.3 Add `@export var base_damage: int = 5`
+    - [x] 3.1.4 Add `@export var base_armor: int = 0`
+    - [x] 3.1.5 Add `@export var base_health: int = 100`
+    - [x] 3.1.6 Commit: "feat(stats): Add core stats structure and base values"
+  - [x] 3.2 **Add derived stats calculations**
+    - [x] 3.2.1 Create computed properties for derived stats
+    - [x] 3.2.2 Update health initialization to use get_max_health()
+    - [x] 3.2.3 Commit: "feat(stats): Add derived stats calculation (attack, armor, max_health)"
+  - [x] 3.3 **Add leveling system**
+    - [x] 3.3.1 Add leveling properties
+    - [x] 3.3.2 Add computed property for experience_to_next_level
+    - [x] 3.3.3 Add signal for level_up
+    - [x] 3.3.4 Create add_experience method with level up logic
+    - [x] 3.3.5 On level up: increment level, add 5 stat points, emit signal
+    - [x] 3.3.6 Commit: "feat(leveling): Add experience and level up system"
+  - [x] 3.4 **Handle NPC stat scaling**
+    - [x] 3.4.1 Add is_player_controlled() helper
+    - [x] 3.4.2 In _ready(), if NOT player-controlled, scale stats by level
+    - [x] 3.4.3 Test with @export level on enemy/neutral units
+    - [x] 3.4.4 Commit: "feat(npcs): Scale NPC stats based on level"
+  - [x] 3.5 **Add stat modification method**
+    - [x] 3.5.1 Create add_stat method
+    - [x] 3.5.2 Validate stat_name exists in stats dictionary
+    - [x] 3.5.3 Add amount to stat, clamp to reasonable max (e.g., 999)
+    - [x] 3.5.4 Emit signal stat_changed
+    - [x] 3.5.5 Commit: "feat(stats): Add stat modification method with validation"
+  - [x] 3.6 **Test stats and leveling**
+    - [x] 3.6.1 Temporarily add debug print in _ready() showing stats
+    - [x] 3.6.2 Run game, verify stats display in console
+    - [x] 3.6.3 Test add_experience method with test button (temporary)
+    - [x] 3.6.4 Verify level up grants stat points and recalculates derived stats
 
 - [ ] 4.0 Expand HUD System (Phase D: Days 7-8)
   - [ ] 4.1 **Create game settings autoload**
