@@ -1,5 +1,8 @@
 extends Node3D
 
+## Manages unit selection and command input for RTS gameplay.
+## Handles single selection, box selection, shift-selection, and move commands.
+
 var selected_units: Array = []
 var is_box_selecting: bool = false
 var box_select_start: Vector2

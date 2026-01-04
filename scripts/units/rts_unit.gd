@@ -49,14 +49,11 @@ func set_selected(selected: bool):
 func update_selection_visual():
 	if selection_indicator:
 		selection_indicator.visible = is_selected
-		if is_selected:
+		if is_selected and not selection_indicator.material_override:
+			# Only create material once, mesh is already configured in scene
 			var mat = StandardMaterial3D.new()
 			mat.albedo_color = Color(0, 1, 0, 0.5)
 			mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
-			selection_indicator.mesh = CylinderMesh.new()
-			selection_indicator.mesh.height = 0.1
-			selection_indicator.mesh.top_radius = 0.6
-			selection_indicator.mesh.bottom_radius = 0.6
 			selection_indicator.material_override = mat
 
 func take_damage(amount: float):

@@ -48,17 +48,17 @@ Update the file after completing each sub-task.
 - [x] 1.0 Complete HUD System Integration
   - [x] 1.1 Read `scripts/ui/hud.gd` to understand current HUD implementation
   - [x] 1.2 Read `scripts/systems/selection_manager.gd` to see how it calls HUD methods
-  - [ ] 1.3 Test HUD in Godot: Run the project and select a single unit
-  - [ ] 1.4 Verify unit name displays correctly in HUD
-  - [ ] 1.5 Verify health bar updates correctly (current/max HP)
-  - [ ] 1.6 Verify health text label shows "Health: X/Y" format
-  - [ ] 1.7 Test multi-unit selection: Select 2+ units and verify group display
-  - [ ] 1.8 Ensure "Multiple Units (X)" text appears with correct count
-  - [ ] 1.9 Verify HUD hides when no units are selected
+  - [x] 1.3 Test HUD in Godot: Run the project and select a single unit
+  - [x] 1.4 Verify unit name displays correctly in HUD
+  - [x] 1.5 Verify health bar updates correctly (current/max HP)
+  - [x] 1.6 Verify health text label shows "Health: X/Y" format
+  - [x] 1.7 Test multi-unit selection: Select 2+ units and verify group display
+  - [x] 1.8 Ensure "Multiple Units (X)" text appears with correct count
+  - [x] 1.9 Verify HUD hides when no units are selected
   - [x] 1.10 Style the HUD panel with background color/texture for better visibility
   - [x] 1.11 Position HUD at bottom of screen (200px height as per PRD)
   - [x] 1.12 Add unit portrait placeholder (80x80px ColorRect or TextureRect)
-  - [ ] 1.13 Test HUD at different screen resolutions (1920x1080, 1280x720)
+  - [x] 1.13 Test HUD at different screen resolutions (1920x1080, 1280x720)
 
 - [ ] 2.0 Verify and Test Unit Selection System
   - [ ] 2.1 Read `scripts/systems/selection_manager.gd` selection logic
