@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://neutral_unit_001"]
+
+[ext_resource type="Script" path="res://scripts/units/rts_unit.gd" id="1_f6k3a"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_unit"]
+radius = 0.4
+height = 2.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_unit"]
+albedo_color = Color(0.2, 0.4, 0.8, 1)
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_unit"]
+radius = 0.4
+height = 2.0
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_selection"]
+top_radius = 0.6
+bottom_radius = 0.6
+height = 0.1
+
+[node name="Unit" type="CharacterBody3D"]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_f6k3a")
+unit_type = "Neutral"
+display_name = "Villager"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_unit")
+surface_material_override/0 = SubResource("StandardMaterial3D_unit")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_unit")
+
+[node name="SelectionIndicator" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.95, 0)
+visible = false
+mesh = SubResource("CylinderMesh_selection")
+
+[node name="HealthBar3D" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)

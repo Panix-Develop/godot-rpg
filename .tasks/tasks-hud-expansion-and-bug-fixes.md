@@ -77,9 +77,9 @@ Update the file after completing each sub-task, not just after completing an ent
     - [x] 1.5.1 Add comment in rts_unit.gd noting collision works, pathfinding is future work
     - [x] 1.5.2 Update README.md Known Limitations section
     - [x] 1.5.3 Commit: "docs: Document collision behavior and pathfinding scope"
-  - [ ] 1.6 **Test all bug fixes together**
-    - [ ] 1.6.1 Run game (F5) and verify all 5 bugs are resolved
-    - [ ] 1.6.2 Check for any new errors in console
+  - [x] 1.6 **Test all bug fixes together**
+    - [x] 1.6.1 Run game (F5) and verify all 5 bugs are resolved
+    - [x] 1.6.2 Check for any new errors in console
 
 - [ ] 2.0 Implement Unit Classification System (Phase B: Days 3-4)
   - [ ] 2.1 **Add unit type properties and groups**

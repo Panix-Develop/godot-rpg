@@ -37,7 +37,11 @@ func spawn_units_in_grid(count: int):
 			1.0,  # Spawn at 1.0 (half of 2.0 capsule height)
 			(row - units_per_row / 2.0) * spacing
 		)
-		spawn_unit(pos)
+		# First unit is the player, rest are friendly
+		if i == 0:
+			spawn_unit_type(pos, "res://scenes/units/player_unit.tscn")
+		else:
+			spawn_unit(pos)
 
 func _input(event):
 	# Left click for selection and movement
@@ -167,6 +171,14 @@ func spawn_unit(pos: Vector3):
 	var unit = unit_scene.instantiate()
 	units_container.add_child(unit)
 	unit.global_position = pos
+
+func spawn_unit_type(pos: Vector3, scene_path: String):
+	"""Spawn a specific unit type from a scene path."""
+	var unit_scene = load(scene_path)
+	var unit = unit_scene.instantiate()
+	units_container.add_child(unit)
+	unit.global_position = pos
+	return unit
 
 func update_hud():
 	hud.update_unit_info(selected_units, player_unit)

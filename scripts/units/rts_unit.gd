@@ -8,6 +8,8 @@ extends CharacterBody3D
 ## This is acceptable for current phase; pathfinding will be added in future iterations.
 
 @export var unit_name: String = "Warrior"
+@export var unit_type: String = "Friendly"  # Options: Player, Friendly, Neutral, Enemy
+@export var display_name: String = "Unit"
 @export var max_health: float = 100.0
 @export var move_speed: float = 5.0
 @export var rotation_speed: float = 10.0  # Degrees per frame for smooth rotation
@@ -23,7 +25,28 @@ var is_moving: bool = false
 func _ready():
 	current_health = max_health
 	add_to_group("unit")  # Add to unit group for selection detection
+	# Add to type-specific group for classification
+	add_to_group("unit_" + unit_type.to_lower())
+	apply_unit_color()
 	update_selection_visual()
+
+func apply_unit_color():
+	"""Apply color material based on unit type."""
+	var material: StandardMaterial3D
+	match unit_type:
+		"Player":
+			material = load("res://assets/materials/mat_player.tres")
+		"Friendly":
+			material = load("res://assets/materials/mat_friendly.tres")
+		"Neutral":
+			material = load("res://assets/materials/mat_neutral.tres")
+		"Enemy":
+			material = load("res://assets/materials/mat_enemy.tres")
+		_:
+			material = load("res://assets/materials/mat_friendly.tres")  # Default
+	
+	if material and mesh_instance:
+		mesh_instance.material_override = material
 
 func _physics_process(delta):
 	if is_moving:
