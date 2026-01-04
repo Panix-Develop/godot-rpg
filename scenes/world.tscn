@@ -1,0 +1,39 @@
+[gd_scene load_steps=7 format=3 uid="uid://dpblvcj4a8w6w"]
+
+[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="1_a4kss"]
+[ext_resource type="Script" path="res://scripts/systems/selection_manager.gd" id="2_bb3vx"]
+[ext_resource type="PackedScene" uid="uid://b6v0xj5xrbgc9" path="res://scenes/ui/hud.tscn" id="3_hud"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_terrain"]
+size = Vector2(50, 50)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_terrain"]
+albedo_color = Color(0.3, 0.5, 0.2, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_terrain"]
+size = Vector3(50, 1, 50)
+
+[node name="Main" type="Node3D"]
+script = ExtResource("2_bb3vx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 20, 0)
+shadow_enabled = true
+
+[node name="Terrain" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_terrain")
+surface_material_override/0 = SubResource("StandardMaterial3D_terrain")
+
+[node name="TerrainCollider" type="StaticBody3D" parent="Terrain"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Terrain/TerrainCollider"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_terrain")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 15, 15)
+script = ExtResource("1_a4kss")
+
+[node name="Units" type="Node3D" parent="."]
+
+[node name="HUD" parent="." instance=ExtResource("3_hud")]
