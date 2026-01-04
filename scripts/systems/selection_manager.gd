@@ -60,7 +60,7 @@ func _input(event):
 				else:
 					# Spread units in a grid formation
 					var spacing = 1.5  # Distance between units
-					var units_per_row = ceil(sqrt(selected_units.size()))
+					var units_per_row = int(ceil(sqrt(selected_units.size())))
 					var index = 0
 					
 					for unit in selected_units:
@@ -158,8 +158,8 @@ func clear_selection():
 func spawn_unit(pos: Vector3):
 	var unit_scene = load("res://scenes/units/rts_unit.tscn")
 	var unit = unit_scene.instantiate()
-	unit.global_position = pos
 	units_container.add_child(unit)
+	unit.global_position = pos
 
 func update_hud():
 	hud.update_unit_info(selected_units)

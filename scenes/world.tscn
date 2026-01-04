@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://dpblvcj4a8w6w"]
 
-[ext_resource type="Script" path="res://scripts/camera_controller.gd" id="1_a4kss"]
-[ext_resource type="Script" path="res://scripts/systems/selection_manager.gd" id="2_bb3vx"]
-[ext_resource type="PackedScene" uid="uid://b6v0xj5xrbgc9" path="res://scenes/ui/hud.tscn" id="3_hud"]
+[ext_resource type="Script" uid="uid://bl2gb20l87hp6" path="res://scripts/camera_controller.gd" id="1_a4kss"]
+[ext_resource type="Script" uid="uid://ohcsh1aekcrc" path="res://scripts/systems/selection_manager.gd" id="2_bb3vx"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="3_hud"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_terrain"]
 size = Vector2(50, 50)
@@ -21,6 +21,7 @@ size = Vector3(2, 2, 2)
 
 [node name="Main" type="Node3D"]
 script = ExtResource("2_bb3vx")
+test_unit_count = 50
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75, 0.433013, 0, 20, 0)
