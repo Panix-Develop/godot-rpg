@@ -87,19 +87,19 @@ Update the file after completing each sub-task.
   - [x] 3.9 Test group movement with 3+ units - ensure they don't overlap excessively
   - [x] 3.10 Verify velocity resets to zero when unit reaches destination
 
-- [ ] 4.0 Polish Camera Controls
-  - [ ] 4.1 Read `scripts/camera_controller.gd` implementation
-  - [ ] 4.2 Test WASD keyboard movement in all 4 directions
-  - [ ] 4.3 Test Arrow key movement in all 4 directions
-  - [ ] 4.4 Test edge scrolling by moving mouse to screen borders
-  - [ ] 4.5 Verify edge scroll margin is approximately 20 pixels
-  - [ ] 4.6 Test mouse wheel zoom in/out
-  - [ ] 4.7 Verify zoom limits are enforced (min: 10, max: 30 units)
-  - [ ] 4.8 Add camera bounds to prevent moving outside 50x50 terrain
-  - [ ] 4.9 Implement clamping in `camera_controller.gd` to constrain X/Z position
-  - [ ] 4.10 Test camera at terrain boundaries - should stop smoothly
-  - [ ] 4.11 Verify camera maintains isometric angle (45° H, 35° V) during all movements
-  - [ ] 4.12 Ensure camera movement feels smooth (no jittering or stuttering)
+- [x] 4.0 Polish Camera Controls
+  - [x] 4.1 Read `scripts/camera_controller.gd` implementation
+  - [x] 4.2 Test WASD keyboard movement in all 4 directions
+  - [x] 4.3 Test Arrow key movement in all 4 directions
+  - [x] 4.4 Test edge scrolling by moving mouse to screen borders
+  - [x] 4.5 Verify edge scroll margin is approximately 20 pixels
+  - [x] 4.6 Test mouse wheel zoom in/out
+  - [x] 4.7 Verify zoom limits are enforced (min: 10, max: 30 units)
+  - [x] 4.8 Add camera bounds to prevent moving outside 50x50 terrain
+  - [x] 4.9 Implement clamping in `camera_controller.gd` to constrain X/Z position
+  - [x] 4.10 Test camera at terrain boundaries - should stop smoothly
+  - [x] 4.11 Verify camera maintains isometric angle (45° H, 35° V) during all movements
+  - [x] 4.12 Ensure camera movement feels smooth (no jittering or stuttering)
 
 - [ ] 5.0 Performance Testing and Optimization
   - [ ] 5.1 Create a test scenario with 20 units in `scripts/systems/selection_manager.gd`

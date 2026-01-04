@@ -1,10 +1,14 @@
 extends Camera3D
 
+## Controls camera movement, zoom, and bounds for RTS gameplay.
+## Supports WASD, arrow keys, edge scrolling, and mouse wheel zoom.
+
 @export var move_speed: float = 20.0
 @export var edge_margin: int = 20
 @export var zoom_speed: float = 2.0
 @export var min_zoom: float = 10.0
 @export var max_zoom: float = 30.0
+@export var map_bounds: Vector2 = Vector2(25, 25)  # Half-size of terrain (50x50 / 2)
 
 var camera_distance: float = 15.0
 
