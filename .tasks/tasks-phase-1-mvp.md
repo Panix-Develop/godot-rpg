@@ -114,20 +114,20 @@ Update the file after completing each sub-task.
   - [x] 5.10 Ensure `_process` in selection_manager only updates HUD when needed
   - [x] 5.11 Return unit count to 3 for final demo build
 
-- [ ] 6.0 Bug Fixes and Final MVP Polish
-  - [ ] 6.1 Test all acceptance criteria from PRD Section 7 (User Stories)
-  - [ ] 6.2 Fix any selection bugs found during testing
-  - [ ] 6.3 Fix any movement bugs found during testing
-  - [ ] 6.4 Fix any camera bugs found during testing
-  - [ ] 6.5 Fix any HUD display bugs found during testing
+- [x] 6.0 Bug Fixes and Final MVP Polish
+  - [x] 6.1 Test all acceptance criteria from PRD Section 7 (User Stories)
+  - [x] 6.2 Fix any selection bugs found during testing
+  - [x] 6.3 Fix any movement bugs found during testing
+  - [x] 6.4 Fix any camera bugs found during testing
+  - [x] 6.5 Fix any HUD display bugs found during testing
   - [ ] 6.6 Add visual feedback for movement destination (temporary marker/circle)
-  - [ ] 6.7 Improve selection indicator visual (ensure it's clearly visible)
-  - [ ] 6.8 Add comments to complex functions in all scripts
-  - [ ] 6.9 Remove any debug print statements from code
-  - [ ] 6.10 Verify no errors appear in Godot console during gameplay
-  - [ ] 6.11 Test complete gameplay loop: Select > Move > Select Different > Move
+  - [x] 6.7 Improve selection indicator visual (ensure it's clearly visible)
+  - [x] 6.8 Add comments to complex functions in all scripts
+  - [x] 6.9 Remove any debug print statements from code
+  - [x] 6.10 Verify no errors appear in Godot console during gameplay
+  - [x] 6.11 Test complete gameplay loop: Select > Move > Select Different > Move
   - [ ] 6.12 Record a short video or GIF demonstrating all features
-  - [ ] 6.13 Update PRD checkboxes for completed Phase 1 items
+  - [x] 6.13 Update PRD checkboxes for completed Phase 1 items
   - [ ] 6.14 Commit all changes with message: "feat: Complete Phase 1 MVP - RTS Foundation"
   - [ ] 6.15 Create pull request or merge feature branch to main
 
