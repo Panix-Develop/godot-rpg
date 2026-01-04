@@ -1,10 +1,14 @@
 extends Camera3D
 
+## Controls camera movement, zoom, and bounds for RTS gameplay.
+## Supports WASD, arrow keys, edge scrolling, and mouse wheel zoom.
+
 @export var move_speed: float = 20.0
 @export var edge_margin: int = 20
 @export var zoom_speed: float = 2.0
 @export var min_zoom: float = 10.0
 @export var max_zoom: float = 30.0
+@export var map_bounds: Vector2 = Vector2(25, 25)  # Half-size of terrain (50x50 / 2)
 
 var camera_distance: float = 15.0
 
@@ -55,6 +59,10 @@ func handle_camera_movement(delta):
 		
 		var movement = (right * move_direction.x + forward * -move_direction.z) * move_speed * delta
 		global_position += movement
+		
+		# Clamp camera position to map bounds
+		global_position.x = clamp(global_position.x, -map_bounds.x, map_bounds.x)
+		global_position.z = clamp(global_position.z, -map_bounds.y, map_bounds.y)
 
 func handle_camera_zoom(_delta):
 	if Input.is_action_just_released("scroll_up"):

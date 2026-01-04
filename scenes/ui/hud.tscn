@@ -1,6 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://b6v0xj5xrbgda"]
+[gd_scene load_steps=4 format=3 uid="uid://b6v0xj5xrbgda"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hud_bg"]
+bg_color = Color(0.1, 0.1, 0.15, 0.9)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.4, 0.5, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_selection_box"]
+bg_color = Color(0.2, 0.6, 1, 0.2)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.8, 1, 0.8)
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_hud")
@@ -9,23 +27,45 @@ script = ExtResource("1_hud")
 visible = false
 offset_right = 100.0
 offset_bottom = 100.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_selection_box")
 
-[node name="UnitInfo" type="VBoxContainer" parent="."]
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 250.0
-offset_bottom = 150.0
+[node name="BottomPanel" type="PanelContainer" parent="."]
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_hud_bg")
 
-[node name="UnitName" type="Label" parent="UnitInfo"]
+[node name="HBoxContainer" type="HBoxContainer" parent="BottomPanel"]
+layout_mode = 2
+
+[node name="UnitPortrait" type="ColorRect" parent="BottomPanel/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+color = Color(0.3, 0.3, 0.4, 1)
+
+[node name="UnitInfo" type="VBoxContainer" parent="BottomPanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="UnitName" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo"]
 layout_mode = 2
 text = "Unit Name"
 theme_override_font_sizes/font_size = 20
 
-[node name="UnitHealth" type="ProgressBar" parent="UnitInfo"]
+[node name="UnitHealth" type="ProgressBar" parent="BottomPanel/HBoxContainer/UnitInfo"]
 layout_mode = 2
 value = 100.0
 show_percentage = false
 
-[node name="UnitHealthLabel" type="Label" parent="UnitInfo"]
+[node name="UnitHealthLabel" type="Label" parent="BottomPanel/HBoxContainer/UnitInfo"]
 layout_mode = 2
 text = "Health: 100/100"
+
+[node name="Spacer" type="Control" parent="BottomPanel/HBoxContainer"]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+size_flags_horizontal = 3
