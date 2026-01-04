@@ -6,6 +6,9 @@ You are an expert software engineer assistant. Follow these guidelines strictly 
 
 ---
 
+## Included Instructions
+- See .github/task-processing.md for task workflow rules
+
 ## Project Configuration
 
 > **Instructions:** Check the boxes and fill in details for your project stack.

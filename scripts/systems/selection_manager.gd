@@ -12,12 +12,28 @@ var box_select_end: Vector2
 @onready var units_container = $Units
 @onready var hud = $HUD
 
+# Performance testing configuration
+@export var test_unit_count: int = 3  # Change to 20 or 50 for performance testing
+
 func _ready():
-	# Spawn some example units
-	spawn_unit(Vector3(5, 0, 5))
-	spawn_unit(Vector3(-5, 0, 5))
-	spawn_unit(Vector3(0, 0, -5))
+	# Spawn units in grid pattern for testing
+	spawn_units_in_grid(test_unit_count)
 	update_hud()
+
+func spawn_units_in_grid(count: int):
+	"""Spawns units in a grid pattern for performance testing."""
+	var spacing = 2.5
+	var units_per_row = ceil(sqrt(count))
+	
+	for i in range(count):
+		var row = floor(i / units_per_row)
+		var col = i % units_per_row
+		var pos = Vector3(
+			(col - units_per_row / 2.0) * spacing,
+			0,
+			(row - units_per_row / 2.0) * spacing
+		)
+		spawn_unit(pos)
 
 func _input(event):
 	# Left click for selection and movement

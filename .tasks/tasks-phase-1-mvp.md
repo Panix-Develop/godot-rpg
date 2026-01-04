@@ -102,16 +102,16 @@ Update the file after completing each sub-task.
   - [x] 4.12 Ensure camera movement feels smooth (no jittering or stuttering)
 
 - [ ] 5.0 Performance Testing and Optimization
-  - [ ] 5.1 Create a test scenario with 20 units in `scripts/systems/selection_manager.gd`
-  - [ ] 5.2 Modify spawn_unit calls to create 20 units in a grid pattern
+  - [x] 5.1 Create a test scenario with 20 units in `scripts/systems/selection_manager.gd`
+  - [x] 5.2 Modify spawn_unit calls to create 20 units in a grid pattern
   - [ ] 5.3 Run project and check FPS (use Godot's Debug > Monitor > FPS)
   - [ ] 5.4 Verify FPS stays at 60 with 20 units
   - [ ] 5.5 Increase to 50 units and test again
   - [ ] 5.6 Profile performance if FPS drops below 60 (Debug > Profiler)
   - [ ] 5.7 Test box selection with all 50 units
   - [ ] 5.8 Test moving all 50 units simultaneously
-  - [ ] 5.9 If performance issues occur, optimize HUD update frequency (only on selection change)
-  - [ ] 5.10 Ensure `_process` in selection_manager only updates HUD when needed
+  - [x] 5.9 If performance issues occur, optimize HUD update frequency (only on selection change)
+  - [x] 5.10 Ensure `_process` in selection_manager only updates HUD when needed
   - [ ] 5.11 Return unit count to 3 for final demo build
 
 - [ ] 6.0 Bug Fixes and Final MVP Polish
