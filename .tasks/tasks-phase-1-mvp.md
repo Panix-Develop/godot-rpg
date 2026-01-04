@@ -128,8 +128,8 @@ Update the file after completing each sub-task.
   - [x] 6.11 Test complete gameplay loop: Select > Move > Select Different > Move
   - [ ] 6.12 Record a short video or GIF demonstrating all features
   - [x] 6.13 Update PRD checkboxes for completed Phase 1 items
-  - [ ] 6.14 Commit all changes with message: "feat: Complete Phase 1 MVP - RTS Foundation"
-  - [ ] 6.15 Create pull request or merge feature branch to main
+  - [x] 6.14 Commit all changes with message: "feat: Complete Phase 1 MVP - RTS Foundation"
+  - [x] 6.15 Create pull request or merge feature branch to main
 
 ---
 
