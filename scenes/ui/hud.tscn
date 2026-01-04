@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://b6v0xj5xrbgda"]
+[gd_scene load_steps=6 format=3 uid="uid://b6v0xj5xrbgda"]
 
 [ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_hud"]
 [ext_resource type="PackedScene" uid="uid://settings_panel_001" path="res://scenes/ui/settings_panel.tscn" id="2_settings"]
+[ext_resource type="PackedScene" uid="uid://debug_panel_001" path="res://scenes/ui/debug_panel.tscn" id="3_debug"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_topbar_bg"]
 bg_color = Color(0.1, 0.1, 0.1, 0.9)
@@ -187,6 +188,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="SettingsPanel" parent="." instance=ExtResource("2_settings")]
+visible = false
+
+[node name="DebugPanel" parent="." instance=ExtResource("3_debug")]
 visible = false
 
 [connection signal="pressed" from="TopBar/HBoxContainer/MenuButton" to="." method="_on_menu_button_pressed"]

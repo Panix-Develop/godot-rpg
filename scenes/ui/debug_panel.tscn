@@ -1,0 +1,161 @@
+[gd_scene load_steps=3 format=3 uid="uid://debug_panel_001"]
+
+[ext_resource type="Script" path="res://scripts/ui/debug_panel.gd" id="1_debug"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.15, 0.15, 0.15, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.4, 0.4, 0.4, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="DebugPanel" type="PanelContainer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -250.0
+offset_right = -10.0
+offset_bottom = 250.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+script = ExtResource("1_debug")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Debug Menu (F12)"
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 18
+
+[node name="HSeparator1" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LevelSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LevelLabel" type="Label" parent="MarginContainer/VBoxContainer/LevelSection"]
+layout_mode = 2
+text = "Level Control"
+theme_override_font_sizes/font_size = 14
+
+[node name="LevelUpButton" type="Button" parent="MarginContainer/VBoxContainer/LevelSection"]
+layout_mode = 2
+text = "Add 1 Level (Selected Unit)"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ExperienceSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ExperienceLabel" type="Label" parent="MarginContainer/VBoxContainer/ExperienceSection"]
+layout_mode = 2
+text = "Experience (Player Only)"
+theme_override_font_sizes/font_size = 14
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/ExperienceSection"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="ExperienceInput" type="LineEdit" parent="MarginContainer/VBoxContainer/ExperienceSection/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Amount (e.g. 100)"
+
+[node name="AddXPButton" type="Button" parent="MarginContainer/VBoxContainer/ExperienceSection/HBoxContainer"]
+layout_mode = 2
+text = "Add XP"
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="SpawnSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="SpawnLabel" type="Label" parent="MarginContainer/VBoxContainer/SpawnSection"]
+layout_mode = 2
+text = "Spawn Units"
+theme_override_font_sizes/font_size = 14
+
+[node name="SpawnNeutralButton" type="Button" parent="MarginContainer/VBoxContainer/SpawnSection"]
+layout_mode = 2
+text = "Spawn Neutral Unit"
+
+[node name="SpawnEnemyButton" type="Button" parent="MarginContainer/VBoxContainer/SpawnSection"]
+layout_mode = 2
+text = "Spawn Enemy Unit"
+
+[node name="HSeparator4" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StatSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="StatLabel" type="Label" parent="MarginContainer/VBoxContainer/StatSection"]
+layout_mode = 2
+text = "Modify Stats (Selected Unit)"
+theme_override_font_sizes/font_size = 14
+
+[node name="StatSelector" type="OptionButton" parent="MarginContainer/VBoxContainer/StatSection"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/StatSection"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="StatInput" type="LineEdit" parent="MarginContainer/VBoxContainer/StatSection/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "Amount (e.g. 5)"
+
+[node name="AddStatButton" type="Button" parent="MarginContainer/VBoxContainer/StatSection/HBoxContainer"]
+layout_mode = 2
+text = "Add Points"
+
+[node name="HSeparator5" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="InfoSection" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 2
+
+[node name="InfoLabel" type="Label" parent="MarginContainer/VBoxContainer/InfoSection"]
+layout_mode = 2
+text = "Status"
+theme_override_font_sizes/font_size = 12
+
+[node name="StatusLabel" type="Label" parent="MarginContainer/VBoxContainer/InfoSection"]
+layout_mode = 2
+text = "No unit selected"
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 11
+autowrap_mode = 3
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LevelSection/LevelUpButton" to="." method="_on_level_up_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ExperienceSection/HBoxContainer/AddXPButton" to="." method="_on_add_xp_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SpawnSection/SpawnNeutralButton" to="." method="_on_spawn_neutral_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SpawnSection/SpawnEnemyButton" to="." method="_on_spawn_enemy_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/StatSection/HBoxContainer/AddStatButton" to="." method="_on_add_stat_button_pressed"]
