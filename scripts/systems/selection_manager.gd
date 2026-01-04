@@ -30,7 +30,7 @@ func spawn_units_in_grid(count: int):
 	var units_per_row = int(ceil(sqrt(count)))
 	
 	for i in range(count):
-		var row = floor(i / units_per_row)
+		var row = floor(float(i) / units_per_row)
 		var col = i % units_per_row
 		var pos = Vector3(
 			(col - units_per_row / 2.0) * spacing,
