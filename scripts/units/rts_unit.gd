@@ -1,8 +1,12 @@
 extends CharacterBody3D
 
+## Base unit class for RTS units.
+## Handles movement, selection, health, and basic combat readiness.
+
 @export var unit_name: String = "Warrior"
 @export var max_health: float = 100.0
 @export var move_speed: float = 5.0
+@export var rotation_speed: float = 10.0  # Degrees per frame for smooth rotation
 
 var current_health: float
 var is_selected: bool = false
@@ -16,11 +20,7 @@ func _ready():
 	current_health = max_health
 	update_selection_visual()
 
-func _physics_process(delta):
-	if is_moving:
-		move_to_target(delta)
-
-func move_to_target(_delta):
+func _physics_procesdelta):
 	var direction = (target_position - global_position).normalized()
 	direction.y = 0  # Keep movement on the ground plane
 	
@@ -28,8 +28,16 @@ func move_to_target(_delta):
 	
 	if distance > 0.5:
 		velocity = direction * move_speed
-		move_and_slide()
 		
+		# Use move_and_slide which handles collisions automatically
+		var collision = move_and_slide()
+		
+		# Smooth rotation toward movement direction
+		if direction.length() > 0:
+			var target_rotation = atan2(direction.x, direction.z)
+			rotation.y = lerp_angle(rotation.y, target_rotation, rotation_speed * delta)
+	else:
+		# Reached destination
 		# Rotate to face movement direction
 		if direction.length() > 0:
 			look_at(global_position + direction, Vector3.UP)

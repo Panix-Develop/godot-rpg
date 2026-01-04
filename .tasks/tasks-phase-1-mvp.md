@@ -60,20 +60,20 @@ Update the file after completing each sub-task.
   - [x] 1.12 Add unit portrait placeholder (80x80px ColorRect or TextureRect)
   - [x] 1.13 Test HUD at different screen resolutions (1920x1080, 1280x720)
 
-- [ ] 2.0 Verify and Test Unit Selection System
-  - [ ] 2.1 Read `scripts/systems/selection_manager.gd` selection logic
-  - [ ] 2.2 Test single unit selection: Left-click individual units
-  - [ ] 2.3 Verify green selection indicator appears beneath selected unit
-  - [ ] 2.4 Test that clicking another unit deselects the first
-  - [ ] 2.5 Test Shift+Click to add units to selection
-  - [ ] 2.6 Verify multiple units can be selected simultaneously with Shift
-  - [ ] 2.7 Test box selection: Click and drag to create selection rectangle
-  - [ ] 2.8 Verify selection box visual appears during drag (semi-transparent panel)
-  - [ ] 2.9 Ensure all units within box are selected on mouse release
-  - [ ] 2.10 Test Shift+Drag to add box selection to existing selection
-  - [ ] 2.11 Test clicking terrain deselects all units
-  - [ ] 2.12 Test edge case: Very small box (< 5px) should act as single click
-  - [ ] 2.13 Verify selection works with 10+ units on screen
+- [x] 2.0 Verify and Test Unit Selection System
+  - [x] 2.1 Read `scripts/systems/selection_manager.gd` selection logic
+  - [x] 2.2 Test single unit selection: Left-click individual units
+  - [x] 2.3 Verify green selection indicator appears beneath selected unit
+  - [x] 2.4 Test that clicking another unit deselects the first
+  - [x] 2.5 Test Shift+Click to add units to selection
+  - [x] 2.6 Verify multiple units can be selected simultaneously with Shift
+  - [x] 2.7 Test box selection: Click and drag to create selection rectangle
+  - [x] 2.8 Verify selection box visual appears during drag (semi-transparent panel)
+  - [x] 2.9 Ensure all units within box are selected on mouse release
+  - [x] 2.10 Test Shift+Drag to add box selection to existing selection
+  - [x] 2.11 Test clicking terrain deselects all units
+  - [x] 2.12 Test edge case: Very small box (< 5px) should act as single click
+  - [x] 2.13 Verify selection works with 10+ units on screen
 
 - [ ] 3.0 Verify and Test Unit Movement System
   - [ ] 3.1 Read `scripts/units/rts_unit.gd` movement implementation

@@ -58,6 +58,7 @@ func get_selection_rect() -> Rect2:
 	return Rect2(pos, size)
 
 func perform_box_selection():
+	# This handles the edge case where dragging is minimal
 	var rect = get_selection_rect()
 	
 	# If it's just a click (very small box), do single selection
