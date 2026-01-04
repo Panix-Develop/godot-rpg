@@ -28,6 +28,7 @@ func _input(event):
 				perform_box_selection()
 				is_box_selecting = false
 				hud.update_selection_box(false)
+				update_hud()
 	
 	# Right click for move command
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
@@ -41,8 +42,6 @@ func _process(_delta):
 	if is_box_selecting:
 		box_select_end = get_viewport().get_mouse_position()
 		update_selection_box()
-	
-	update_hud()
 
 func update_selection_box():
 	var rect = get_selection_rect()
@@ -110,12 +109,14 @@ func add_unit_to_selection(unit):
 	if unit not in selected_units:
 		selected_units.append(unit)
 		unit.set_selected(true)
+		update_hud()
 
 func clear_selection():
 	for unit in selected_units:
 		if is_instance_valid(unit):
 			unit.set_selected(false)
 	selected_units.clear()
+	update_hud()
 
 func spawn_unit(pos: Vector3):
 	var unit_scene = load("res://scenes/units/rts_unit.tscn")

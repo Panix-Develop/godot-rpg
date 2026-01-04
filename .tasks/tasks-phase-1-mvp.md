@@ -41,13 +41,13 @@ Update the file after completing each sub-task.
 
 ## Tasks
 
-- [ ] 0.0 Create feature branch
-  - [ ] 0.1 Create and checkout a new branch (e.g., `git checkout -b feature/phase-1-mvp-completion`)
-  - [ ] 0.2 Ensure all existing files are committed before starting new work
+- [x] 0.0 Create feature branch
+  - [x] 0.1 Create and checkout a new branch (e.g., `git checkout -b feature/phase-1-mvp-completion`)
+  - [x] 0.2 Ensure all existing files are committed before starting new work
 
-- [ ] 1.0 Complete HUD System Integration
-  - [ ] 1.1 Read `scripts/ui/hud.gd` to understand current HUD implementation
-  - [ ] 1.2 Read `scripts/systems/selection_manager.gd` to see how it calls HUD methods
+- [x] 1.0 Complete HUD System Integration
+  - [x] 1.1 Read `scripts/ui/hud.gd` to understand current HUD implementation
+  - [x] 1.2 Read `scripts/systems/selection_manager.gd` to see how it calls HUD methods
   - [ ] 1.3 Test HUD in Godot: Run the project and select a single unit
   - [ ] 1.4 Verify unit name displays correctly in HUD
   - [ ] 1.5 Verify health bar updates correctly (current/max HP)
@@ -55,9 +55,9 @@ Update the file after completing each sub-task.
   - [ ] 1.7 Test multi-unit selection: Select 2+ units and verify group display
   - [ ] 1.8 Ensure "Multiple Units (X)" text appears with correct count
   - [ ] 1.9 Verify HUD hides when no units are selected
-  - [ ] 1.10 Style the HUD panel with background color/texture for better visibility
-  - [ ] 1.11 Position HUD at bottom of screen (200px height as per PRD)
-  - [ ] 1.12 Add unit portrait placeholder (80x80px ColorRect or TextureRect)
+  - [x] 1.10 Style the HUD panel with background color/texture for better visibility
+  - [x] 1.11 Position HUD at bottom of screen (200px height as per PRD)
+  - [x] 1.12 Add unit portrait placeholder (80x80px ColorRect or TextureRect)
   - [ ] 1.13 Test HUD at different screen resolutions (1920x1080, 1280x720)
 
 - [ ] 2.0 Verify and Test Unit Selection System
