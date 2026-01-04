@@ -81,40 +81,40 @@ Update the file after completing each sub-task, not just after completing an ent
     - [x] 1.6.1 Run game (F5) and verify all 5 bugs are resolved
     - [x] 1.6.2 Check for any new errors in console
 
-- [ ] 2.0 Implement Unit Classification System (Phase B: Days 3-4)
-  - [ ] 2.1 **Add unit type properties and groups**
-    - [ ] 2.1.1 Read `scripts/units/rts_unit.gd`
-    - [ ] 2.1.2 Add `@export var unit_type: String = "Friendly"` (options: Player, Friendly, Neutral, Enemy)
-    - [ ] 2.1.3 Add `@export var display_name: String = "Unit"`
-    - [ ] 2.1.4 In _ready(), add to group based on unit_type: `add_to_group("unit_" + unit_type.to_lower())`
-    - [ ] 2.1.5 Commit: "feat(units): Add unit_type and display_name properties with group assignment"
-  - [ ] 2.2 **Create colored materials for unit types**
-    - [ ] 2.2.1 In Godot editor, create 4 StandardMaterial3D resources
-    - [ ] 2.2.2 Set colors: Player=#4A90E2, Friendly=#50C878, Neutral=#FFD700, Enemy=#E74C3C
-    - [ ] 2.2.3 Save as: `assets/materials/mat_player.tres`, `mat_friendly.tres`, `mat_neutral.tres`, `mat_enemy.tres`
-    - [ ] 2.2.4 Commit: "feat(materials): Add colored materials for unit type distinction"
-  - [ ] 2.3 **Update rts_unit.gd to apply colors**
-    - [ ] 2.3.1 Add `@onready var mesh: MeshInstance3D = $MeshInstance3D` (or correct path)
-    - [ ] 2.3.2 In _ready(), load appropriate material based on unit_type
-    - [ ] 2.3.3 Apply material to mesh: `mesh.material_override = loaded_material`
-    - [ ] 2.3.4 Commit: "feat(units): Apply unit type color to mesh based on classification"
-  - [ ] 2.4 **Create unit scene variants**
-    - [ ] 2.4.1 Duplicate `scenes/units/rts_unit.tscn` to `player_unit.tscn`
-    - [ ] 2.4.2 In player_unit.tscn Inspector, set unit_type="Player", display_name="Hero"
-    - [ ] 2.4.3 Duplicate rts_unit.tscn to `enemy_unit.tscn`, set unit_type="Enemy", display_name="Bandit"
-    - [ ] 2.4.4 Duplicate rts_unit.tscn to `neutral_unit.tscn`, set unit_type="Neutral", display_name="Villager"
-    - [ ] 2.4.5 Commit: "feat(scenes): Create player, enemy, and neutral unit scene variants"
-  - [ ] 2.5 **Update spawn system to use player unit**
-    - [ ] 2.5.1 Read `scripts/systems/selection_manager.gd` spawn_units_in_grid
-    - [ ] 2.5.2 Spawn first unit as player: `load("res://scenes/units/player_unit.tscn")`
-    - [ ] 2.5.3 Spawn remaining units as friendly (existing rts_unit.tscn)
-    - [ ] 2.5.4 Cache player_unit reference after spawning
-    - [ ] 2.5.5 Test: First unit is blue (player), others are green (friendly)
-    - [ ] 2.5.6 Commit: "feat(spawn): Spawn first unit as player, cache player reference"
-  - [ ] 2.6 **Test unit classification**
-    - [ ] 2.6.1 Run game, verify player unit is blue
-    - [ ] 2.6.2 Check console for correct group assignment messages (optional debug prints)
-    - [ ] 2.6.3 Verify other units are green
+- [x] 2.0 Implement Unit Classification System (Phase B: Days 3-4)
+  - [x] 2.1 **Add unit type properties and groups**
+    - [x] 2.1.1 Read `scripts/units/rts_unit.gd`
+    - [x] 2.1.2 Add `@export var unit_type: String = "Friendly"` (options: Player, Friendly, Neutral, Enemy)
+    - [x] 2.1.3 Add `@export var display_name: String = "Unit"`
+    - [x] 2.1.4 In _ready(), add to group based on unit_type: `add_to_group("unit_" + unit_type.to_lower())`
+    - [x] 2.1.5 Commit: "feat(units): Add unit_type and display_name properties with group assignment"
+  - [x] 2.2 **Create colored materials for unit types**
+    - [x] 2.2.1 In Godot editor, create 4 StandardMaterial3D resources
+    - [x] 2.2.2 Set colors: Player=#4A90E2, Friendly=#50C878, Neutral=#FFD700, Enemy=#E74C3C
+    - [x] 2.2.3 Save as: `assets/materials/mat_player.tres`, `mat_friendly.tres`, `mat_neutral.tres`, `mat_enemy.tres`
+    - [x] 2.2.4 Commit: "feat(materials): Add colored materials for unit type distinction"
+  - [x] 2.3 **Update rts_unit.gd to apply colors**
+    - [x] 2.3.1 Add `@onready var mesh: MeshInstance3D = $MeshInstance3D` (or correct path)
+    - [x] 2.3.2 In _ready(), load appropriate material based on unit_type
+    - [x] 2.3.3 Apply material to mesh: `mesh.material_override = loaded_material`
+    - [x] 2.3.4 Commit: "feat(units): Apply unit type color to mesh based on classification"
+  - [x] 2.4 **Create unit scene variants**
+    - [x] 2.4.1 Duplicate `scenes/units/rts_unit.tscn` to `player_unit.tscn`
+    - [x] 2.4.2 In player_unit.tscn Inspector, set unit_type="Player", display_name="Hero"
+    - [x] 2.4.3 Duplicate rts_unit.tscn to `enemy_unit.tscn`, set unit_type="Enemy", display_name="Bandit"
+    - [x] 2.4.4 Duplicate rts_unit.tscn to `neutral_unit.tscn`, set unit_type="Neutral", display_name="Villager"
+    - [x] 2.4.5 Commit: "feat(scenes): Create player, enemy, and neutral unit scene variants"
+  - [x] 2.5 **Update spawn system to use player unit**
+    - [x] 2.5.1 Read `scripts/systems/selection_manager.gd` spawn_units_in_grid
+    - [x] 2.5.2 Spawn first unit as player: `load("res://scenes/units/player_unit.tscn")`
+    - [x] 2.5.3 Spawn remaining units as friendly (existing rts_unit.tscn)
+    - [x] 2.5.4 Cache player_unit reference after spawning
+    - [x] 2.5.5 Test: First unit is blue (player), others are green (friendly)
+    - [x] 2.5.6 Commit: "feat(spawn): Spawn first unit as player, cache player reference"
+  - [x] 2.6 **Test unit classification**
+    - [x] 2.6.1 Run game, verify player unit is blue
+    - [x] 2.6.2 Check console for correct group assignment messages (optional debug prints)
+    - [x] 2.6.3 Verify other units are green
 
 - [ ] 3.0 Implement Stats and Leveling System (Phase C: Days 5-6)
   - [ ] 3.1 **Add core stats structure**
