@@ -101,18 +101,18 @@ Update the file after completing each sub-task.
   - [x] 4.11 Verify camera maintains isometric angle (45° H, 35° V) during all movements
   - [x] 4.12 Ensure camera movement feels smooth (no jittering or stuttering)
 
-- [ ] 5.0 Performance Testing and Optimization
+- [x] 5.0 Performance Testing and Optimization
   - [x] 5.1 Create a test scenario with 20 units in `scripts/systems/selection_manager.gd`
   - [x] 5.2 Modify spawn_unit calls to create 20 units in a grid pattern
-  - [ ] 5.3 Run project and check FPS (use Godot's Debug > Monitor > FPS)
-  - [ ] 5.4 Verify FPS stays at 60 with 20 units
-  - [ ] 5.5 Increase to 50 units and test again
-  - [ ] 5.6 Profile performance if FPS drops below 60 (Debug > Profiler)
-  - [ ] 5.7 Test box selection with all 50 units
-  - [ ] 5.8 Test moving all 50 units simultaneously
+  - [x] 5.3 Run project and check FPS (use Godot's Debug > Monitor > FPS)
+  - [x] 5.4 Verify FPS stays at 60 with 20 units
+  - [x] 5.5 Increase to 50 units and test again
+  - [x] 5.6 Profile performance if FPS drops below 60 (Debug > Profiler)
+  - [x] 5.7 Test box selection with all 50 units
+  - [x] 5.8 Test moving all 50 units simultaneously
   - [x] 5.9 If performance issues occur, optimize HUD update frequency (only on selection change)
   - [x] 5.10 Ensure `_process` in selection_manager only updates HUD when needed
-  - [ ] 5.11 Return unit count to 3 for final demo build
+  - [x] 5.11 Return unit count to 3 for final demo build
 
 - [ ] 6.0 Bug Fixes and Final MVP Polish
   - [ ] 6.1 Test all acceptance criteria from PRD Section 7 (User Stories)
