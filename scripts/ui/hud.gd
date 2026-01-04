@@ -8,9 +8,9 @@ extends CanvasLayer
 @onready var unit_health_bar = $BottomPanel/HBoxContainer/UnitInfo/UnitHealth
 @onready var unit_health_label = $BottomPanel/HBoxContainer/UnitInfo/UnitHealthLabel
 
-func update_selection_box(is_visible: bool, rect: Rect2 = Rect2()):
-	selection_box.visible = is_visible
-	if is_visible:
+func update_selection_box(box_visible: bool, rect: Rect2 = Rect2()):
+	selection_box.visible = box_visible
+	if box_visible:
 		selection_box.position = rect.position
 		selection_box.size = rect.size
 
