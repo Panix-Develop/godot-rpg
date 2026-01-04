@@ -23,7 +23,7 @@ func _ready():
 func spawn_units_in_grid(count: int):
 	"""Spawns units in a grid pattern for performance testing."""
 	var spacing = 2.5
-	var units_per_row = ceil(sqrt(count))
+	var units_per_row = int(ceil(sqrt(count)))
 	
 	for i in range(count):
 		var row = floor(i / units_per_row)
