@@ -25,6 +25,22 @@ extends CanvasLayer
 @onready var armor_label = $BottomPanel/HBoxContainer/UnitInfo/CombatStats/ArmorLabel
 @onready var unspent_points_label = $BottomPanel/HBoxContainer/UnitInfo/CombatStats/UnspentPointsLabel
 
+var camera_controller: Camera3D = null
+
+func _ready() -> void:
+	# Get camera reference for disabling during UI interactions
+	var root = get_tree().root
+	camera_controller = root.get_node_or_null("Main/Camera3D")
+	
+	# Connect to settings panel visibility changes
+	if settings_panel:
+		settings_panel.visibility_changed.connect(_on_settings_panel_visibility_changed)
+
+func _on_settings_panel_visibility_changed() -> void:
+	"""Disable camera when settings panel is open."""
+	if camera_controller and camera_controller.has_method("set_camera_enabled"):
+		camera_controller.set_camera_enabled(!settings_panel.visible)
+
 func _on_menu_button_pressed():
 	settings_panel.visible = !settings_panel.visible
 

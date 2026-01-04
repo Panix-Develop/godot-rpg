@@ -11,6 +11,7 @@ extends Camera3D
 @export var map_bounds: Vector2 = Vector2(25, 25)  # Half-size of terrain (50x50 / 2)
 
 var camera_distance: float = 15.0
+var camera_enabled: bool = true  # Disable when UI panels are open
 
 func _ready():
 	# Set isometric angle (45 degrees horizontal, 35 degrees vertical)
@@ -18,8 +19,9 @@ func _ready():
 	update_camera_position()
 
 func _process(delta):
-	handle_camera_movement(delta)
-	handle_camera_zoom(delta)
+	if camera_enabled:
+		handle_camera_movement(delta)
+		handle_camera_zoom(delta)
 
 func handle_camera_movement(delta):
 	var viewport_size = get_viewport().get_visible_rect().size
@@ -86,4 +88,8 @@ func update_camera_position():
 	# Maintain isometric angle while zooming
 	var angle_rad = deg_to_rad(-35)
 	position.y = camera_distance * sin(-angle_rad)
+
+func set_camera_enabled(enabled: bool) -> void:
+	"""Enable or disable camera controls (called by UI when panels open/close)."""
+	camera_enabled = enabled
 	position.z = camera_distance * cos(-angle_rad)
