@@ -88,8 +88,8 @@ func update_camera_position():
 	# Maintain isometric angle while zooming
 	var angle_rad = deg_to_rad(-35)
 	position.y = camera_distance * sin(-angle_rad)
+	position.z = camera_distance * cos(-angle_rad)
 
 func set_camera_enabled(enabled: bool) -> void:
 	"""Enable or disable camera controls (called by UI when panels open/close)."""
 	camera_enabled = enabled
-	position.z = camera_distance * cos(-angle_rad)
