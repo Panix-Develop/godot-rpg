@@ -7,6 +7,7 @@ var selected_units: Array = []
 var is_box_selecting: bool = false
 var box_select_start: Vector2
 var box_select_end: Vector2
+var player_unit: Node = null  # Reference to the player's unit
 
 @onready var camera = $Camera3D
 @onready var units_container = $Units
@@ -18,6 +19,9 @@ var box_select_end: Vector2
 func _ready():
 	# Spawn units in grid pattern for testing
 	spawn_units_in_grid(test_unit_count)
+	# Cache player unit reference (first unit spawned)
+	if units_container.get_child_count() > 0:
+		player_unit = units_container.get_child(0)
 	update_hud()
 
 func spawn_units_in_grid(count: int):
@@ -30,7 +34,7 @@ func spawn_units_in_grid(count: int):
 		var col = i % units_per_row
 		var pos = Vector3(
 			(col - units_per_row / 2.0) * spacing,
-			0,
+			0.5,  # Spawn at 0.5 to prevent terrain clipping
 			(row - units_per_row / 2.0) * spacing
 		)
 		spawn_unit(pos)
@@ -44,7 +48,11 @@ func _input(event):
 		else:
 			if is_box_selecting:
 				box_select_end = event.position
-				perform_box_selection()
+				# Check if it's a single click (very small movement)
+				if box_select_start.distance_to(box_select_end) < 5:
+					perform_single_selection(box_select_start)
+				else:
+					perform_box_selection()
 				is_box_selecting = false
 				hud.update_selection_box(false)
 				update_hud()
@@ -162,4 +170,4 @@ func spawn_unit(pos: Vector3):
 	unit.global_position = pos
 
 func update_hud():
-	hud.update_unit_info(selected_units)
+	hud.update_unit_info(selected_units, player_unit)

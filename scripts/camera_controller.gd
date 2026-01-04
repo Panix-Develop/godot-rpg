@@ -37,7 +37,7 @@ func handle_camera_movement(delta):
 	elif mouse_pos.y > viewport_size.y - edge_margin:
 		move_direction.z += 1
 	
-	# WASD movement
+	# Arrow keys movement
 	if Input.is_action_pressed("ui_left"):
 		move_direction.x -= 1
 	if Input.is_action_pressed("ui_right"):
@@ -45,6 +45,16 @@ func handle_camera_movement(delta):
 	if Input.is_action_pressed("ui_up"):
 		move_direction.z -= 1
 	if Input.is_action_pressed("ui_down"):
+		move_direction.z += 1
+	
+	# WASD movement
+	if Input.is_key_pressed(KEY_A):
+		move_direction.x -= 1
+	if Input.is_key_pressed(KEY_D):
+		move_direction.x += 1
+	if Input.is_key_pressed(KEY_W):
+		move_direction.z -= 1
+	if Input.is_key_pressed(KEY_S):
 		move_direction.z += 1
 	
 	if move_direction != Vector3.ZERO:

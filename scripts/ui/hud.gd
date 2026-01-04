@@ -14,7 +14,7 @@ func update_selection_box(box_visible: bool, rect: Rect2 = Rect2()):
 		selection_box.position = rect.position
 		selection_box.size = rect.size
 
-func update_unit_info(selected_units: Array):
+func update_unit_info(selected_units: Array, player_unit: Node = null):
 	if selected_units.size() == 1 and is_instance_valid(selected_units[0]):
 		var unit = selected_units[0]
 		var info = unit.get_unit_info()
@@ -31,4 +31,14 @@ func update_unit_info(selected_units: Array):
 		unit_portrait.visible = false
 		bottom_panel.visible = true
 	else:
-		bottom_panel.visible = false
+		# Show player unit info when nothing is selected
+		if is_instance_valid(player_unit):
+			var info = player_unit.get_unit_info()
+			unit_name_label.text = info["name"] + " (Player)"
+			unit_health_bar.value = (info["health"] / info["max_health"]) * 100
+			unit_health_label.text = "Health: %d/%d" % [info["health"], info["max_health"]]
+			unit_health_bar.visible = true
+			unit_portrait.visible = true
+			bottom_panel.visible = true
+		else:
+			bottom_panel.visible = false

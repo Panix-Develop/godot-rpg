@@ -133,6 +133,12 @@ This is a learning project. Commits should follow conventional commit format:
 - [ ] HUD updates correctly
 - [ ] Performance: 60 FPS with 50 units
 
+## Known Limitations
+
+- **No Pathfinding**: Units use direct movement and collision detection. They can block each other and may get stuck behind obstacles. Pathfinding/navigation will be added in future phases.
+- **Basic AI**: Units have no autonomous behavior or decision-making
+- **Placeholder Visuals**: Using simple geometric shapes (capsules, boxes)
+
 ## License
 
 [Add your license here]

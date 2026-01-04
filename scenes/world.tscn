@@ -28,6 +28,7 @@ transform = Transform3D(0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, -0.75
 shadow_enabled = true
 
 [node name="Terrain" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.018931389, 0.06650162, -0.030124664)
 mesh = SubResource("PlaneMesh_terrain")
 surface_material_override/0 = SubResource("StandardMaterial3D_terrain")
 

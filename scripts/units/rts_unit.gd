@@ -2,6 +2,10 @@ extends CharacterBody3D
 
 ## Base unit class for RTS units.
 ## Handles movement, selection, health, and basic combat readiness.
+##
+## Note: Units use CharacterBody3D collision and can block each other.
+## Pathfinding/navigation is not implemented - units may get stuck behind obstacles.
+## This is acceptable for current phase; pathfinding will be added in future iterations.
 
 @export var unit_name: String = "Warrior"
 @export var max_health: float = 100.0
