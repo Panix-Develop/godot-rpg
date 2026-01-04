@@ -34,7 +34,7 @@ func spawn_units_in_grid(count: int):
 		var col = i % units_per_row
 		var pos = Vector3(
 			(col - units_per_row / 2.0) * spacing,
-			0.5,  # Spawn at 0.5 to prevent terrain clipping
+			1.0,  # Spawn at 1.0 (half of 2.0 capsule height)
 			(row - units_per_row / 2.0) * spacing
 		)
 		spawn_unit(pos)
@@ -127,12 +127,11 @@ func perform_single_selection(mouse_pos: Vector2):
 	
 	if result:
 		var collider = result.collider
-		# Check if we hit a unit
-		if collider.get_parent() is CharacterBody3D:
-			var unit = collider.get_parent()
+		# Check if we hit a unit (collider IS the CharacterBody3D)
+		if collider is CharacterBody3D and collider.is_in_group("unit"):
 			if not Input.is_key_pressed(KEY_SHIFT):
 				clear_selection()
-			add_unit_to_selection(unit)
+			add_unit_to_selection(collider)
 		else:
 			# Clicked on terrain, clear selection if not holding shift
 			if not Input.is_key_pressed(KEY_SHIFT):

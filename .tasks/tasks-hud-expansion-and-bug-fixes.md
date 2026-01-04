@@ -48,35 +48,35 @@ Update the file after completing each sub-task, not just after completing an ent
   - [x] 0.1 Create and checkout new branch `feature/phase-2-hud-expansion`
   - [x] 0.2 Push branch to GitHub remote
 
-- [ ] 1.0 Fix Critical Bugs (Phase A: Days 1-2)
-  - [ ] 1.1 **BUG-001: Fix single-click selection**
-    - [ ] 1.1.1 Read `scripts/systems/selection_manager.gd` _input method
-    - [ ] 1.1.2 Identify box selection threshold issue (likely `box_select_start` vs `box_select_end` distance check)
-    - [ ] 1.1.3 Reduce threshold to 5 pixels or add proper single-click detection
-    - [ ] 1.1.4 Test single-click on unit (should select immediately)
-    - [ ] 1.1.5 Commit fix: "fix(selection): Fix single-click unit selection threshold"
-  - [ ] 1.2 **BUG-002: Fix WASD camera controls**
-    - [ ] 1.2.1 Read `scripts/camera_controller.gd` _process method
-    - [ ] 1.2.2 Check Input.is_action_pressed for "move_up", "move_down", "move_left", "move_right"
-    - [ ] 1.2.3 Verify input actions are mapped in project.godot
-    - [ ] 1.2.4 Fix WASD input handling (likely missing or incorrect action names)
-    - [ ] 1.2.5 Test all four directions (W=forward, A=left, S=back, D=right)
-    - [ ] 1.2.6 Commit fix: "fix(camera): Fix WASD camera movement controls"
-  - [ ] 1.3 **BUG-003: Fix HUD always visible with player info**
-    - [ ] 1.3.1 Read `scripts/ui/hud.gd` and `scripts/systems/selection_manager.gd`
-    - [ ] 1.3.2 Add `player_unit` reference in selection_manager (cache in _ready)
-    - [ ] 1.3.3 Modify `update_hud()` to show player info when `selected_units.size() == 0`
-    - [ ] 1.3.4 Test: HUD shows player info on game start (no selection)
-    - [ ] 1.3.5 Commit fix: "fix(hud): Display player unit info when no units selected"
-  - [ ] 1.4 **BUG-004: Fix unit spawn height**
-    - [ ] 1.4.1 Read `scripts/systems/selection_manager.gd` spawn_unit and spawn_units_in_grid methods
-    - [ ] 1.4.2 Change spawn position Y from 0 to 0.5 (half capsule height)
-    - [ ] 1.4.3 Test: Units spawn fully visible on terrain surface
-    - [ ] 1.4.4 Commit fix: "fix(spawn): Set unit spawn height to 0.5 to prevent terrain clipping"
-  - [ ] 1.5 **BUG-005: Document collision/pathfinding status**
-    - [ ] 1.5.1 Add comment in rts_unit.gd noting collision works, pathfinding is future work
-    - [ ] 1.5.2 Update README.md Known Limitations section
-    - [ ] 1.5.3 Commit: "docs: Document collision behavior and pathfinding scope"
+- [x] 1.0 Fix Critical Bugs (Phase A: Days 1-2)
+  - [x] 1.1 **BUG-001: Fix single-click selection**
+    - [x] 1.1.1 Read `scripts/systems/selection_manager.gd` _input method
+    - [x] 1.1.2 Identify box selection threshold issue (likely `box_select_start` vs `box_select_end` distance check)
+    - [x] 1.1.3 Reduce threshold to 5 pixels or add proper single-click detection
+    - [x] 1.1.4 Test single-click on unit (should select immediately)
+    - [x] 1.1.5 Commit fix: "fix(selection): Fix single-click unit selection threshold"
+  - [x] 1.2 **BUG-002: Fix WASD camera controls**
+    - [x] 1.2.1 Read `scripts/camera_controller.gd` _process method
+    - [x] 1.2.2 Check Input.is_action_pressed for "move_up", "move_down", "move_left", "move_right"
+    - [x] 1.2.3 Verify input actions are mapped in project.godot
+    - [x] 1.2.4 Fix WASD input handling (likely missing or incorrect action names)
+    - [x] 1.2.5 Test all four directions (W=forward, A=left, S=back, D=right)
+    - [x] 1.2.6 Commit fix: "fix(camera): Fix WASD camera movement controls"
+  - [x] 1.3 **BUG-003: Fix HUD always visible with player info**
+    - [x] 1.3.1 Read `scripts/ui/hud.gd` and `scripts/systems/selection_manager.gd`
+    - [x] 1.3.2 Add `player_unit` reference in selection_manager (cache in _ready)
+    - [x] 1.3.3 Modify `update_hud()` to show player info when `selected_units.size() == 0`
+    - [x] 1.3.4 Test: HUD shows player info on game start (no selection)
+    - [x] 1.3.5 Commit fix: "fix(hud): Display player unit info when no units selected"
+  - [x] 1.4 **BUG-004: Fix unit spawn height**
+    - [x] 1.4.1 Read `scripts/systems/selection_manager.gd` spawn_unit and spawn_units_in_grid methods
+    - [x] 1.4.2 Change spawn position Y from 0 to 0.5 (half capsule height)
+    - [x] 1.4.3 Test: Units spawn fully visible on terrain surface
+    - [x] 1.4.4 Commit fix: "fix(spawn): Set unit spawn height to 0.5 to prevent terrain clipping"
+  - [x] 1.5 **BUG-005: Document collision/pathfinding status**
+    - [x] 1.5.1 Add comment in rts_unit.gd noting collision works, pathfinding is future work
+    - [x] 1.5.2 Update README.md Known Limitations section
+    - [x] 1.5.3 Commit: "docs: Document collision behavior and pathfinding scope"
   - [ ] 1.6 **Test all bug fixes together**
     - [ ] 1.6.1 Run game (F5) and verify all 5 bugs are resolved
     - [ ] 1.6.2 Check for any new errors in console

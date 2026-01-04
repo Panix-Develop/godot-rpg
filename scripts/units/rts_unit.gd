@@ -22,6 +22,7 @@ var is_moving: bool = false
 
 func _ready():
 	current_health = max_health
+	add_to_group("unit")  # Add to unit group for selection detection
 	update_selection_visual()
 
 func _physics_process(delta):
