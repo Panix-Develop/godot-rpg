@@ -38,8 +38,25 @@ func _input(event):
 		if selected_units.size() > 0:
 			var target_pos = get_world_position_from_mouse(event.position)
 			if target_pos:
-				for unit in selected_units:
-					unit.set_target_position(target_pos)
+				# Apply formation spread for multiple units
+				if selected_units.size() == 1:
+					selected_units[0].set_target_position(target_pos)
+				else:
+					# Spread units in a grid formation
+					var spacing = 1.5  # Distance between units
+					var units_per_row = ceil(sqrt(selected_units.size()))
+					var index = 0
+					
+					for unit in selected_units:
+						var row = floor(index / units_per_row)
+						var col = index % units_per_row
+						var offset = Vector3(
+							(col - units_per_row / 2.0) * spacing,
+							0,
+							row * spacing
+						)
+						unit.set_target_position(target_pos + offset)
+						index += 1
 
 func _process(_delta):
 	if is_box_selecting:

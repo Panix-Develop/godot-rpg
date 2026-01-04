@@ -75,17 +75,17 @@ Update the file after completing each sub-task.
   - [x] 2.12 Test edge case: Very small box (< 5px) should act as single click
   - [x] 2.13 Verify selection works with 10+ units on screen
 
-- [ ] 3.0 Verify and Test Unit Movement System
-  - [ ] 3.1 Read `scripts/units/rts_unit.gd` movement implementation
-  - [ ] 3.2 Select a unit and right-click on terrain to issue move command
-  - [ ] 3.3 Verify unit moves toward clicked location
-  - [ ] 3.4 Verify unit rotates to face movement direction
-  - [ ] 3.5 Verify unit stops when reaching destination (within 0.5 units)
-  - [ ] 3.6 Test moving multiple selected units - they should all move
-  - [ ] 3.7 Add simple obstacle (StaticBody3D cube) and test pathfinding around it
-  - [ ] 3.8 If pathfinding doesn't work, implement basic NavigationAgent3D or collision avoidance
-  - [ ] 3.9 Test group movement with 3+ units - ensure they don't overlap excessively
-  - [ ] 3.10 Verify velocity resets to zero when unit reaches destination
+- [x] 3.0 Verify and Test Unit Movement System
+  - [x] 3.1 Read `scripts/units/rts_unit.gd` movement implementation
+  - [x] 3.2 Select a unit and right-click on terrain to issue move command
+  - [x] 3.3 Verify unit moves toward clicked location
+  - [x] 3.4 Verify unit rotates to face movement direction
+  - [x] 3.5 Verify unit stops when reaching destination (within 0.5 units)
+  - [x] 3.6 Test moving multiple selected units - they should all move
+  - [x] 3.7 Add simple obstacle (StaticBody3D cube) and test pathfinding around it
+  - [x] 3.8 If pathfinding doesn't work, implement basic NavigationAgent3D or collision avoidance
+  - [x] 3.9 Test group movement with 3+ units - ensure they don't overlap excessively
+  - [x] 3.10 Verify velocity resets to zero when unit reaches destination
 
 - [ ] 4.0 Polish Camera Controls
   - [ ] 4.1 Read `scripts/camera_controller.gd` implementation
